@@ -41,7 +41,7 @@ def sql_exec():
         table, start_date, end_date = args[3], args[4], args[5]
         logger.info('START BACKUP %s ...' % table)
         start = time.time()
-        MYSQLDB = {'db': args[2], 'user': 'plat_test', 'passwd': '2zXomws8',
+        MYSQLDB = {'db': args[2], 'user': 'plat_test', 'passwd': 'xxxx',
            'host': args[1], 'port': 3306}
         db = MySQLdb.connect(**MYSQLDB)
         while start_date <= end_date:
