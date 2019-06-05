@@ -1,0 +1,25 @@
+---
+- name: copy docker tarball to remote host
+  copy: 
+    src: package/docker-18.03.1-ce.tgz 
+    dest: /tmp/docker-18.03.1-ce.tgz 
+
+- name: create installation directory
+  file: 
+    path: /data/tool
+    state: directory
+
+
+- name: unarchive gz file
+  unarchive:
+    src: /tmp/docker-18.03.1-ce.tgz
+    dest: /data/tool/
+
+- name: copy docker service config file to remote host
+  copy:
+    src: config/docker.service
+    dest: /lib/systemd/system/docker.service 
+
+- name: copy execute docker file to /usr/bin
+  shell: cp /data/tool/docker/* /usr/bin/ 
+  notify: start docker
