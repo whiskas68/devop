@@ -28,4 +28,7 @@
 
 - name: copy execute docker file to /usr/bin
   shell: cp /data/tool/docker/* /usr/bin/ 
-  notify: start docker
+  notify: 
+    - no mask
+    - start docker
+

@@ -1,4 +1,10 @@
 ---
 # handlers file for docker-role
 - name: start docker
-  service: name=docker state=started
+  systemd: name=docker state=started daemon_reload=yes
+
+- name: restart docker
+  systemd: name=docker state=restarted
+
+- name: no mask
+  systemd: name=docker enabled=yes masked=no

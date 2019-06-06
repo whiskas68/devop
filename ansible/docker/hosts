@@ -1,2 +1,2 @@
 [docker-app]
-localhost
+localhost ansible_sudo_pass="123456"
